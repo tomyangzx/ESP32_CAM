@@ -2,8 +2,8 @@
 #include <WiFi.h>
 
 // Replace with your network credentials
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
+const char* ssid = "Xiaomi_F71C";
+const char* password = "PPqc2qSh!";
 
 void startCameraServer();
 
