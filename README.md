@@ -20,3 +20,11 @@ c8:f0:9e:9b:24:68
 
 
 ![alt text](image.png)
+
+# Install OpenCV on venv
+
+C:\Users\tomya\my_project
+
+venv\Scripts\activate
+
+deactivate
