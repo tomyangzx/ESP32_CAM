@@ -28,3 +28,7 @@ C:\Users\tomya\my_project
 venv\Scripts\activate
 
 deactivate
+
+
+Check possible interaction with leo Chen
+
