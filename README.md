@@ -1,34 +1,99 @@
-# ESP32_CAM
-Hobby Projects mainly with 2 ESP32 CAM
+# ESP32 CAM Project
 
-# Flash Test
-use https://sparks.gogo.co.nz/assets/_site_/downloads/CH34x_Install_Windows_v3_4.zip flash works for Arduino IDE and Platform IO
+A hobby project utilizing two ESP32 CAM modules for various camera-based applications.
 
-1. Press hold IOD button on uploader board
-2. Press Reset button on  esp32 CAM board (reset on uploader board not work)
-3. Release reset button at first and then the IOD button 
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Hardware Setup](#hardware-setup)
+- [Flashing Instructions](#flashing-instructions)
+- [Device Configuration](#device-configuration)
+- [Development Environment](#development-environment)
+- [Network Configuration](#network-configuration)
+- [Collaboration Notes](#collaboration-notes)
 
-# CAM Code Test
+## Project Overview
 
-http://192.168.2.88
-esp32-9DBF24.sphairon.box
-ec:62:60:9d:bf:24
+This project involves working with ESP32 CAM modules to create camera-based IoT applications. The project is built using PlatformIO and supports web-based camera streaming.
 
-http://192.168.2.133
-esp32-9B2468.sphairon.box
-c8:f0:9e:9b:24:68
+## Hardware Setup
 
+### Required Components
+- 2x ESP32 CAM modules
+- USB programmer/uploader board
+- Connecting cables
 
-![alt text](image.png)
+### Board Layout
+![ESP32 CAM Setup](image.png)
 
-# Install OpenCV on venv
+## Flashing Instructions
 
-C:\Users\tomya\my_project
+### Prerequisites
+Download and install CH34x USB drivers:
+- **Driver Download**: [CH34x Windows Driver v3.4](https://sparks.gogo.co.nz/assets/_site_/downloads/CH34x_Install_Windows_v3_4.zip)
+- Compatible with both Arduino IDE and PlatformIO
 
+### Flashing Procedure
+1. **Press and hold** the IOD button on the uploader board
+2. **Press** the Reset button on the ESP32 CAM board 
+   > ⚠️ Note: Use the reset button on the ESP32 CAM, not the uploader board
+3. **Release** the Reset button first, then release the IOD button
+4. Begin upload process in your IDE
+
+## Device Configuration
+
+### Device #1
+- **IP Address**: `192.168.2.88`
+- **Hostname**: `esp32-9DBF24.sphairon.box`
+- **MAC Address**: `ec:62:60:9d:bf:24`
+- **Web Interface**: [http://192.168.2.88](http://192.168.2.88)
+
+### Device #2
+- **IP Address**: `192.168.2.133`
+- **Hostname**: `esp32-9B2468.sphairon.box`
+- **MAC Address**: `c8:f0:9e:9b:24:68`
+- **Web Interface**: [http://192.168.2.133](http://192.168.2.133)
+
+## Development Environment
+
+### OpenCV Virtual Environment Setup
+
+```powershell
+# Navigate to project directory
+cd C:\Users\tomya\my_project
+
+# Activate virtual environment
 venv\Scripts\activate
 
+# Deactivate when done
 deactivate
+```
 
+### Project Structure
+```
+ESP32_CAM/
+├── src/
+│   └── main.cpp
+├── platformio.ini
+├── README.md
+├── image.png
+└── ...
+```
 
-Check possible interaction with leo Chen
+## Network Configuration
+
+Both ESP32 CAM devices are configured to work within the local network (`192.168.2.x` subnet). Ensure your development machine is on the same network for direct communication.
+
+## Collaboration Notes
+
+- **Potential Collaboration**: Check possible interaction with Leo Chen
+- **Development Focus**: Camera streaming and IoT applications
+
+---
+
+## Getting Started
+
+1. Clone this repository
+2. Install PlatformIO extension in VS Code
+3. Flash the firmware following the [flashing instructions](#flashing-instructions)
+4. Access the web interface using the device IP addresses listed above
 
