@@ -71,13 +71,17 @@ deactivate
 ### Project Structure
 ```
 ESP32_CAM/
-├── src/
-│   └── main.cpp
-├── platformio.ini
+├── esp32_cam_firmware/    (submodule - ESP32 camera firmware)
+│   ├── src/
+│   │   └── main.cpp
+│   └── platformio.ini
+├── .gitmodules
 ├── README.md
 ├── image.png
 └── ...
 ```
+
+> **Note**: The ESP32 firmware code is managed as a git submodule for easier integration with OpenCV dual camera processing.
 
 ## Network Configuration
 
@@ -93,7 +97,18 @@ Both ESP32 CAM devices are configured to work within the local network (`192.168
 ## Getting Started
 
 1. Clone this repository
-2. Install PlatformIO extension in VS Code
-3. Flash the firmware following the [flashing instructions](#flashing-instructions)
-4. Access the web interface using the device IP addresses listed above
+   ```bash
+   git clone https://github.com/tomyangzx/ESP32_CAM.git
+   cd ESP32_CAM
+   ```
+
+2. Initialize and update submodules
+   ```bash
+   git submodule init
+   git submodule update
+   ```
+
+3. Install PlatformIO extension in VS Code
+4. Navigate to the `esp32_cam_firmware` directory and flash the firmware following the [flashing instructions](#flashing-instructions)
+5. Access the web interface using the device IP addresses listed above
 
