@@ -1,0 +1,30 @@
+/*********
+  WiFi Configuration Template
+  Copy this to wifi_config.h and update with your credentials
+*********/
+
+#ifndef WIFI_CONFIG_H
+#define WIFI_CONFIG_H
+
+// Replace with your actual WiFi credentials
+const char* WIFI_SSID = "your_wifi_network_name";
+const char* WIFI_PASSWORD = "your_wifi_password";
+
+// Optional: Multiple network configurations
+// Uncomment and configure additional networks if needed
+/*
+struct wifi_config_t {
+  const char* ssid;
+  const char* password;
+};
+
+wifi_config_t wifi_networks[] = {
+  {"Home_Network", "home_password"},
+  {"Office_Network", "office_password"},
+  {"Backup_Network", "backup_password"}
+};
+
+const int num_networks = sizeof(wifi_networks) / sizeof(wifi_config_t);
+*/
+
+#endif

@@ -92,23 +92,61 @@ Both ESP32 CAM devices are configured to work within the local network (`192.168
 - **Potential Collaboration**: Check possible interaction with Leo Chen
 - **Development Focus**: Camera streaming and IoT applications
 
+## Security Notes
+
+- 🔒 **WiFi credentials** are stored in `src/wifi_config.h` which is **not committed to git**
+- 🔒 Keep your `wifi_config.h` file local and secure
+- 🔒 Never commit WiFi passwords to version control
+- 🔒 Use the provided template system for secure credential management
+
 ---
 
 ## Getting Started
 
-1. Clone this repository
-   ```bash
-   git clone https://github.com/tomyangzx/ESP32_CAM.git
-   cd ESP32_CAM
-   ```
+### 1. Clone and Setup
+```bash
+git clone https://github.com/tomyangzx/ESP32_CAM.git
+cd ESP32_CAM
+```
 
-2. Initialize and update submodules
-   ```bash
-   git submodule init
-   git submodule update
-   ```
+### 2. Configure WiFi Credentials
+Run the setup script to create your local WiFi configuration:
 
-3. Install PlatformIO extension in VS Code
-4. Navigate to the `esp32_cam_firmware` directory and flash the firmware following the [flashing instructions](#flashing-instructions)
-5. Access the web interface using the device IP addresses listed above
+**Windows:**
+```cmd
+setup.bat
+```
+
+**Linux/Mac:**
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+**Manual Setup:**
+```bash
+cp src/wifi_config.h.template src/wifi_config.h
+# Edit src/wifi_config.h with your WiFi credentials
+```
+
+### 3. Update WiFi Settings
+Edit `src/wifi_config.h` and replace the placeholder values:
+```cpp
+const char* WIFI_SSID = "your_actual_wifi_name";
+const char* WIFI_PASSWORD = "your_actual_password";
+```
+
+### 4. Configure Device Name (Optional)
+For multiple devices, edit `src/main_enhanced.cpp`:
+```cpp
+const char* device_name = "ESP32_CAM_1";  // Change to "ESP32_CAM_2" for second device
+```
+
+### 5. Flash Firmware
+1. Install PlatformIO extension in VS Code
+2. Follow the [flashing instructions](#flashing-instructions)
+3. Upload the firmware to your ESP32-CAM
+
+### 6. Access Web Interface
+After flashing, access your device at the IP addresses shown in serial output or use the [configured addresses](#device-configuration)
 

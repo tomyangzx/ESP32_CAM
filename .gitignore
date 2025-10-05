@@ -4,3 +4,19 @@
 .vscode/launch.json
 .vscode/ipch
 .vscode/extensions.json
+
+# WiFi Configuration (keep local)
+src/wifi_config.h
+
+# Build artifacts
+*.bin
+*.elf
+*.map
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*~

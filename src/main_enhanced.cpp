@@ -1,5 +1,13 @@
-/*********
-  Enhanced ESP32-CAM Video Streaming Server
+/*******#include "esp_camera.h"
+#include <WiFi.h>
+#include "esp_timer.h"
+#include "img_converters.h"
+#include "Arduino.h"
+#include "fb_gfx.h"
+#include "soc/soc.h" //disable brownout problems
+#include "soc/rtc_cntl_reg.h"  //disable brownout problems
+#include "esp_http_server.h"
+#include "wifi_config.h"  // Local WiFi configurationd ESP32-CAM Video Streaming Server
   Optimized for OpenCV compatibility
   
   Based on: RandomNerdTutorials.com ESP32-CAM streaming example
@@ -17,7 +25,7 @@
 #include "esp_http_server.h"
 
 //Replace with your actual network credentials
-const char* ssid = "your_wifi_network";
+const char* ssid = "";
 const char* password = "your_wifi_password";
 
 // Device identifier (change for second device)
@@ -293,8 +301,9 @@ void setup() {
   }
   
   // Wi-Fi connection
-  WiFi.begin(ssid, password);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to WiFi");
+  Serial.printf(" (%s)", WIFI_SSID);
   
   int wifi_attempts = 0;
   while (WiFi.status() != WL_CONNECTED && wifi_attempts < 30) {
