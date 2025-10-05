@@ -8,6 +8,7 @@ A hobby project utilizing two ESP32 CAM modules for various camera-based applica
 - [Flashing Instructions](#flashing-instructions)
 - [Device Configuration](#device-configuration)
 - [Development Environment](#development-environment)
+- [OpenCV Application](#opencv-application)
 - [Network Configuration](#network-configuration)
 - [Collaboration Notes](#collaboration-notes)
 
@@ -71,17 +72,69 @@ deactivate
 ### Project Structure
 ```
 ESP32_CAM/
-├── esp32_cam_firmware/    (submodule - ESP32 camera firmware)
-│   ├── src/
-│   │   └── main.cpp
-│   └── platformio.ini
+├── OpenCV_APP/           # Python OpenCV application framework
+│   ├── core/            # Core camera and config management
+│   ├── viewers/         # GUI and web viewers
+│   ├── utils/           # Utility functions
+│   ├── cli/             # Command-line interface
+│   ├── config/          # Configuration files
+│   ├── tests/           # Test suite
+│   └── README.md        # OpenCV_APP documentation
+├── src/                 # ESP32 firmware source
+│   └── main.cpp
+├── platformio.ini
 ├── .gitmodules
 ├── README.md
 ├── image.png
 └── ...
 ```
 
-> **Note**: The ESP32 firmware code is managed as a git submodule for easier integration with OpenCV dual camera processing.
+> **Note**: The ESP32 firmware provides the camera streaming functionality, while the OpenCV_APP directory contains a professional Python framework for processing and viewing the camera streams.
+
+## OpenCV Application
+
+The `OpenCV_APP` directory contains a comprehensive Python framework for working with ESP32-CAM streams.
+
+### Features
+
+- **🎥 Multiple Viewer Options**: GUI-based dual/single camera viewers and web interface
+- **🔧 Robust Connection Management**: Automatic retry logic and error recovery
+- **⚙️ Flexible Configuration**: Environment variables, YAML files, and programmatic setup
+- **🔍 Diagnostic Tools**: Network scanning, connectivity testing, performance monitoring
+- **💾 Frame Capture**: Save individual frames or synchronized pairs
+- **🧪 Comprehensive Testing**: Full test suite with mocking support
+
+### Quick Start
+
+1. **Install Python dependencies:**
+   ```bash
+   cd OpenCV_APP
+   pip install -r requirements.txt
+   ```
+
+2. **Configure cameras (optional):**
+   ```bash
+   export ESP32_CAM_1_IP=192.168.2.88
+   export ESP32_CAM_2_IP=192.168.2.133
+   ```
+
+3. **Run dual camera viewer:**
+   ```bash
+   python -m cli.main_cli view
+   ```
+
+4. **Run web interface:**
+   ```bash
+   python -m cli.main_cli web
+   # Access at http://localhost:5000
+   ```
+
+5. **Run diagnostics:**
+   ```bash
+   python -m cli.main_cli diagnose
+   ```
+
+For detailed documentation, see [OpenCV_APP/README.md](OpenCV_APP/README.md).
 
 ## Network Configuration
 

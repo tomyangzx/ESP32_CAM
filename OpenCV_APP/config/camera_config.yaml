@@ -1,0 +1,20 @@
+# ESP32-CAM Configuration File
+# This file defines camera configurations in YAML format
+
+cameras:
+  - name: ESP32_CAM_1
+    ip: 192.168.2.88
+    port: 80
+    description: "First ESP32-CAM device"
+    
+  - name: ESP32_CAM_2
+    ip: 192.168.2.133
+    port: 80
+    description: "Second ESP32-CAM device"
+
+# Application settings
+settings:
+  retry_attempts: 3
+  retry_delay: 2
+  timeout: 5
+  capture_directory: "captures"

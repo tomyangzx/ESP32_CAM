@@ -20,3 +20,36 @@ Thumbs.db
 # Backup files
 *.bak
 *~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# IDE
+.idea/
+*.swp
+*.swo
+.vscode/settings.json
+
+# OpenCV_APP specific
+OpenCV_APP/captures/
+OpenCV_APP/legacy/*.py
+*.log
