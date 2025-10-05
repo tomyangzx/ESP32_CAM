@@ -1,0 +1,25 @@
+{
+  "application": {
+    "name": "ESP32-CAM OpenCV Application",
+    "version": "1.0.0"
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "viewer": {
+    "default_window_size": [640, 480],
+    "enable_annotations": true,
+    "show_fps": true
+  },
+  "capture": {
+    "default_format": "jpg",
+    "quality": 95,
+    "timestamp_format": "%Y%m%d_%H%M%S"
+  },
+  "network": {
+    "connection_timeout": 5,
+    "stream_timeout": 10,
+    "max_retries": 3
+  }
+}
