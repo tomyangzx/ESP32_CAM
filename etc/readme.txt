@@ -1,0 +1,1 @@
+due to driver issue withCH34x in windows 11 , this driver shall be installed manually every 
